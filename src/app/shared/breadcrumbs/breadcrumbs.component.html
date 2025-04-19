@@ -1,0 +1,17 @@
+<div
+  class="h-full flex items-center gap-2 md:w-60 md:border-r md:border-[#314158]"
+>
+  <ng-container *ngFor="let breadcrumb of breadcrumbs; let last = last">
+    <a
+      [routerLink]="breadcrumb.url"
+      routerLinkActive="active"
+      [class.cursor-pointer]="!breadcrumb.isLast"
+      class="text-[#FFB86A] text-sm font-semibold"
+      [class.cursor-default]="breadcrumb.isLast"
+      >{{ breadcrumb.label }}</a
+    >
+    @if(!last) {
+    <span class="text-[#FFB86A] text-sm font-semibold">/</span>
+    }
+  </ng-container>
+</div>

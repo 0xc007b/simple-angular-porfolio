@@ -1,12 +1,24 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AboutMeComponent } from './about-me/about-me.component';
-import { ContactMeComponent } from './contact-me/contact-me.component';
-import { ProjectsComponent } from './projects/projects.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about-me', component: AboutMeComponent },
-  { path: 'contact-me', component: ContactMeComponent },
-  { path: 'projects', component: ProjectsComponent },
+  {
+    path: '',
+    loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
+    data: { breadcrumb: '_home' }
+  },
+  {
+    path: 'projects',
+    loadComponent: () => import('./projects/projects.component').then(m => m.ProjectsComponent),
+    data: { breadcrumb: '_projects' }
+  },
+  {
+    path: 'about-me',
+    loadComponent: () => import('./about-me/about-me.component').then(m => m.AboutMeComponent),
+    data: { breadcrumb: '_about-me' }
+  },
+  {
+    path: 'contact-me',
+    loadComponent: () => import('./contact-me/contact-me.component').then(m => m.ContactMeComponent),
+    data: { breadcrumb: '_contact-me' }
+  }
 ];

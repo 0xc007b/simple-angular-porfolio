@@ -1,8 +1,17 @@
 <main class="h-screen w-screen bg-[#020618] p-4 md:p-8 lg:p-12">
   <section
-    class="h-full w-full bg-[#0F172B] border border-[#314158] rounded-lg grid grid-rows-[56px_1fr_56px]"
+    class="h-full w-full max-w-full overflow-hidden bg-[#0F172B] border border-[#314158] rounded-lg grid grid-rows-[56px_48px_1fr_56px] relative"
   >
     <app-navbar></app-navbar>
+
+    <!-- breadcrumbs section -->
+    <section
+      class="h-12 w-full bg-[#0F172B] border-b border-[#314158] flex items-center px-4"
+    >
+      <app-breadcrumbs class="h-full"></app-breadcrumbs>
+
+      <!-- will be used later -->
+    </section>
 
     <section class="h-full w-full overflow-y-auto">
       <router-outlet />

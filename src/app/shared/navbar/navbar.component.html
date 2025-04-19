@@ -1,57 +1,124 @@
 <header
-class="h-14 border-b border-[#314158] flex items-center justify-between px-4"
+  class="h-14 border-b border-[#314158] flex items-center justify-between px-4"
 >
-<section class="flex items-center gap-10">
-  <div>
-    <h1>florent-azonnoudo</h1>
+  <section class="flex items-center h-full">
+    <div
+      class="md:w-60 h-full md:border-r md:border-[#314158] flex items-center gap-2"
+    >
+      <h1>florent-azonnoudo</h1>
+    </div>
+    <nav class="hidden md:block">
+      <ul class="flex">
+        <li class="px-8 p-4 relative group">
+          <a
+            routerLink="/"
+            routerLinkActive="active"
+            class="relative cursor-pointer transition-all duration-300 group-hover:text-white"
+            >_home</a
+          >
+          <div
+            class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFB86A] transition-all duration-300 group-hover:w-full"
+          ></div>
+        </li>
+        <li class="px-8 p-4 border-l border-[#314158] relative group">
+          <a
+            routerLink="/about-me"
+            routerLinkActive="active"
+            class="cursor-pointer transition-all duration-300 group-hover:text-white"
+            >_about-me</a
+          >
+          <div
+            class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFB86A] transition-all duration-300 group-hover:w-full"
+          ></div>
+        </li>
+        <li class="px-8 p-4 border-x border-[#314158] relative group">
+          <a
+            routerLink="/projects"
+            routerLinkActive="active"
+            class="cursor-pointer transition-all duration-300 group-hover:text-white"
+            >_my-projects</a
+          >
+          <div
+            class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFB86A] transition-all duration-300 group-hover:w-full"
+          ></div>
+        </li>
+      </ul>
+    </nav>
+  </section>
+  <div
+    class="hidden md:block px-8 p-4 border-l border-[#314158] relative group"
+  >
+    <a
+      routerLink="/contact-me"
+      routerLinkActive="active"
+      class="cursor-pointer transition-all duration-300 group-hover:text-white"
+      >_contact-me</a
+    >
+    <div
+      class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFB86A] transition-all duration-300 group-hover:w-full"
+    ></div>
   </div>
-  <nav class="hidden md:block">
-    <ul class="flex">
-      <li class="px-8 p-4 border-l border-[#314158] relative group">
+
+  <!-- Mobile menu button -->
+  <button (click)="toggleMobileMenu()" class="md:hidden flex items-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path
+        d="M4 18q-.425 0-.712-.288T3 17t.288-.712T4 16h16q.425 0 .713.288T21 17t-.288.713T20 18zm0-5q-.425 0-.712-.288T3 12t.288-.712T4 11h16q.425 0 .713.288T21 12t-.288.713T20 13zm0-5q-.425 0-.712-.288T3 7t.288-.712T4 6h16q.425 0 .713.288T21 7t-.288.713T20 8z"
+      />
+    </svg>
+  </button>
+</header>
+
+<!-- Mobile Menu Dropdown -->
+@if(isMobileMenuOpen) {
+<div
+  class="md:hidden absolute top-14 left-0 right-0 bg-[#1e2736] border-b border-[#314158] z-50 shadow-lg"
+>
+  <nav>
+    <ul class="flex flex-col">
+      <li class="p-4 border-b border-[#314158] hover:bg-[#2c3850]">
         <a
           routerLink="/"
           routerLinkActive="active"
-          class="relative cursor-pointer"
+          class="block w-full"
+          (click)="closeMobileMenu()"
           >_home</a
         >
-        <div
-          class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFB86A] transition-all duration-300 group-hover:w-full"
-        ></div>
       </li>
-      <li class="px-8 p-4 border-l border-[#314158] relative group">
+      <li class="p-4 border-b border-[#314158] hover:bg-[#2c3850]">
         <a
           routerLink="/about-me"
           routerLinkActive="active"
-          class="cursor-pointer"
+          class="block w-full"
+          (click)="closeMobileMenu()"
           >_about-me</a
         >
-        <div
-          class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFB86A] transition-all duration-300 group-hover:w-full"
-        ></div>
       </li>
-      <li class="px-8 p-4 border-x border-[#314158] relative group">
+      <li class="p-4 border-b border-[#314158] hover:bg-[#2c3850]">
         <a
           routerLink="/projects"
           routerLinkActive="active"
-          class="cursor-pointer"
+          class="block w-full"
+          (click)="closeMobileMenu()"
           >_my-projects</a
         >
-        <div
-          class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFB86A] transition-all duration-300 group-hover:w-full"
-        ></div>
+      </li>
+      <li class="p-4 hover:bg-[#2c3850]">
+        <a
+          routerLink="/contact-me"
+          routerLinkActive="active"
+          class="block w-full"
+          (click)="closeMobileMenu()"
+          >_contact-me</a
+        >
       </li>
     </ul>
   </nav>
-</section>
-<div class="px-8 p-4 border-l border-[#314158] relative group">
-  <a
-    routerLink="/contact-me"
-    routerLinkActive="active"
-    class="cursor-pointer"
-    >_contact-me</a
-  >
-  <div
-    class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFB86A] transition-all duration-300 group-hover:w-full"
-  ></div>
 </div>
-</header>
+}
