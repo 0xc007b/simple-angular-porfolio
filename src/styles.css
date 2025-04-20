@@ -5,3 +5,16 @@
   font-family: 'Fira Code', monospace;
   color: #90A1B9;
 }
+
+.cm-editor,
+.cm-gutters {
+  background-color: transparent !important;
+}
+
+.cm-content {
+  font-family: 'Fira Code', monospace !important;
+}
+
+.cm-focused {
+  border: none !important;
+}
