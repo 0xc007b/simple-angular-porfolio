@@ -9,7 +9,7 @@
   position: absolute;
   width: 90%;
   left: 5%;
-  transform: translateY(-100%);
+  transform: translateY(-120%);
   animation: slide-down 30s linear infinite;
   opacity: 0.9;
   transition: opacity 0.3s;

@@ -16,13 +16,16 @@
     </p>
   </div>
 
-  <div class="hidden md:flex md:flex-col md:justify-center md:relative md:overflow-hidden h-[500px]">
+  <div class="hidden md:flex md:flex-col md:justify-center md:relative md:overflow-hidden h-full">
     <div class="code-carousel">
       @for (codeSnippet of codeSnippets; track $index) {
-        <pre class="code-snippet bg-slate-800/50 text-xs p-4 my-4 rounded-md border border-slate-700 shadow-lg" 
-             [style.animation-delay]="codeSnippet.delay + 's'"
-             [style.animation-duration]="codeSnippet.animationDuration + 's'">
-          <code [innerHTML]="codeSnippet.code"></code>
+        <pre class="code-snippet text-xs p-4 pb-0 rounded-md border border-slate-700 shadow-lg w-full" 
+             [ngStyle]="{
+               'background': 'linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%)',
+               'animation-delay': codeSnippet.delay + 's',
+               'animation-duration': codeSnippet.animationDuration + 's'
+             }">
+          <code [innerHTML]="codeSnippet.code" class="max-w-full"></code>
         </pre>
       }
     </div>
